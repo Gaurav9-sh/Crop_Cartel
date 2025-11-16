@@ -1,33 +1,194 @@
-.active {
-  color: blue !important;
+.nav {
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%) !important;
+  box-shadow: 0 2px 12px rgba(46, 125, 50, 0.2);
+  padding: 0.5rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition);
+}
+
+.nav .navbar-brand {
+  color: var(--white) !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.nav .navbar-brand:hover {
+  transform: scale(1.05);
+  color: var(--off-white) !important;
+}
+
+.desktop-nav {
+  background: transparent !important;
+  box-shadow: none;
+}
+
+.desktop-nav .navbar-text {
+  color: var(--white) !important;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 8px 20px;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition);
+  position: relative;
+  margin: 0 4px;
+}
+
+.desktop-nav .navbar-text::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--white);
+  transition: width 0.3s ease;
+}
+
+.desktop-nav .navbar-text:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white) !important;
+}
+
+.desktop-nav .navbar-text:hover::before {
+  width: 60%;
+}
+
+.desktop-nav a.active .navbar-text {
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+.desktop-nav a.active .navbar-text::before {
+  width: 60%;
 }
 
 .mobile-nav {
   display: none;
+  z-index: 1001;
+}
+
+.mobile-nav button {
+  background: transparent;
+  border: none;
+  color: var(--white);
+  padding: 0;
+}
+
+.mobile-nav .hamburger-react {
+  color: var(--white);
 }
 
 .offcanvas-show {
   position: fixed !important;
-  z-index: 20 !important;
+  z-index: 2000 !important;
+}
+
+.offcanvas {
+  background: linear-gradient(180deg, var(--primary-green) 0%, var(--primary-green-light) 100%) !important;
+}
+
+.offcanvas-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem;
+}
+
+.offcanvas-title {
+  color: var(--white) !important;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.offcanvas .btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+}
+
+.offcanvas-body {
+  padding: 2rem 1rem;
 }
 
 .offcanvas-li {
   text-align: center;
-  margin-bottom: 40px;
-  font-size: 1.5rem;
-  color: black;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+  color: var(--white);
+  padding: 1rem;
+  border-radius: var(--border-radius-md);
+  transition: var(--transition);
+  font-weight: 500;
 }
+
 .offcanvas-li:first-child {
-  margin-top: 20px;
+  margin-top: 0;
+}
+
+.offcanvas-li:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateX(8px);
+}
+
+.offcanvas a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.offcanvas a.active .offcanvas-li {
+  background: rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+}
+
+.offcanvas hr {
+  border-color: rgba(255, 255, 255, 0.2);
+  margin: 2rem 0;
+}
+
+.offcanvas .logout-section {
+  cursor: pointer;
+  color: var(--white);
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-md);
+  transition: var(--transition);
+}
+
+.offcanvas .logout-section:hover {
+  background: rgba(239, 83, 80, 0.9);
+  transform: scale(1.02);
+}
+
+.offcanvas .logout-section .offcanvas-title {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 @media screen and (max-aspect-ratio: 4/3) {
   .mobile-nav {
     display: block;
   }
+
   .desktop-nav {
-    /* display: none !important; */
     pointer-events: none;
     opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav .navbar-brand {
+    font-size: 1.25rem;
+  }
+
+  .offcanvas-li {
+    font-size: 1.1rem;
+    padding: 0.875rem;
   }
 }

@@ -2,36 +2,53 @@
 .page-mid-sectionn {
   min-height: 93.8vh;
   margin: auto;
-  width: 45%;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 1rem;
 }
+
 .page-mid-section2 {
   min-height: 89.7vh;
 }
 
 .main-button-css {
-  padding: 7px 50px;
+  padding: 12px 48px;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+  color: var(--white);
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  border: none;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
 }
+
+.main-button-css:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, var(--primary-green-dark) 0%, var(--primary-green) 100%);
+}
+
 .mid-padding {
   padding-top: 70px;
 }
 
 .login-form-modal {
-  width: 80%;
+  width: 100%;
+  max-width: 700px;
   margin: auto;
   min-height: 89.7vh;
   display: flex;
   flex-direction: column;
-
   justify-content: center;
 }
 
 @media screen and (max-aspect-ratio: 4/3) {
   .login-form-modal {
-    width: 85%;
+    width: 90%;
     min-height: 92vh;
   }
   .page-mid-section {
-    width: 85%;
+    width: 95%;
     min-height: 96.52vh;
   }
   .page-mid-section2 {
@@ -40,5 +57,17 @@
   .page-mid-sectionn {
     width: 95%;
     min-height: 96.52vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page-mid-section,
+  .page-mid-sectionn {
+    width: 95%;
+  }
+
+  .main-button-css {
+    padding: 10px 32px;
+    font-size: 0.95rem;
   }
 }
